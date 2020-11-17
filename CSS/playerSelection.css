@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
 body{
@@ -35,7 +36,6 @@ body{
 
 .playerSelection h1{
     color:#ADEFD1FF ;
-    
     padding: 10px 15px 10px 15px;
     border: 1px solid #ADEFD1FF;
 }
@@ -49,6 +49,7 @@ a{
 h1:hover{
     background-color:#ADEFD1FF;
     color:#00203FFF;
+    cursor: pointer;
 }
 
 h1:active{
@@ -87,6 +88,10 @@ button:active{
 
 /**game styling beging**/
 
+.wrapper2{
+    display: none;
+}
+
 .container2{
     background-color:#00203FFF;
     border: 5px solid rgb(79, 167, 127);
@@ -94,7 +99,6 @@ button:active{
     height: 60vh;
     display: grid;
     padding: 15px;
-    display: none;
 }
 
 .playGround{

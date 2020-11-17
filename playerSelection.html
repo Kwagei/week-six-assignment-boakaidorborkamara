@@ -9,47 +9,44 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <div class="header">
-                <h3>Would you like to be player X or O?</h3>
-            </div>
-            <div class="playerSelection">
-                <a href=""><h1>X</h1></a>
-                <a href=""><h1>O</h1></a>
-        
-            </div>
-            <div class="buttonArea">
-                <button type="submit"> <a href="index.html">Back</a></button>
-            </div>
+                <div class="header" class="remove">
+                    <h3>Would you like to be player X or O?</h3>
+                </div>
+                <div class="playerSelection" class="remove">
+                    <h1 class="playerX" onclick="displayPlayground()">X</h1>
+                    <h1 class="player"  onclick="displayPlayground()">O</h1>
+                </div>
+                <div class="buttonArea" class="remove">
+                    <button type="submit"> <a href="index.html">Back</a></button>
+                </div>
         </div>
     </div>
 
    <!--game are code starts-->
-    <!-- <div class="wrapper">
+    <div class="wrapper2">
         <div class="container2">
             <div class="scoreArea">
-                <h2>Player Won</h2>
+                <h2 class="finalResults"></h2>
                 <div class="score">
                 <p>Player - 0</p>
                 <p>Computer - 0</p>
                 </div>
             </div>
             <div class="playGround">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                <div class="boxes"></div>
+                
             </div>
 
         </div>
-    </div> -->
-    
-    <!-- <script>
-        document.getElementById("container2").style.display="none";
-    </script> -->
+    </div>
+    <script src="./JavaScript/script.js"></script>
 </body>
 </html>
