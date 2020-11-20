@@ -52,6 +52,7 @@ h1:hover{
     cursor: pointer;
 }
 
+
 h1:active{
     color:#00203FFF;
     background-color:rgb(79, 167, 127);
@@ -128,7 +129,24 @@ button:active{
     justify-content: space-between;
 }
 .playGround div{
+    background-color: white;
+    
+}
+
+
+.boxes:hover{
     background-color:#ADEFD1FF;
+    cursor: pointer;
+}
+
+.boxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-weight: bolder;
+    
+    color:#00203FFF;
 }
 
 
