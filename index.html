@@ -7,17 +7,65 @@
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="header">
-                <h1>TI-TAC-TOE GAME</h1>
-                <h3>How do your want to play?</h3>
-            </div>
-            <div class="buttonArea">
-                <button type="submit"> <a href="./playerSelection.html">One Player</a></button>
-                <button type="submit"> <a href="#">Two Players</a> </button>
-            </div>
+<!-- First board, which is the welcome board containing two and one players options -->
+<div class="wrapper1">
+    <div class="container">
+        <div class="header">
+            <h1>TI-TAC-TOE GAME</h1>
+            <h3>How do your want to play?</h3>
+        </div>
+        <div class="instructionArea">
+            <p id="instruction_btn">INSTRUCTIONS HERE...</p>
+            <p id = "instuction_text">Titactoe is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iure quibusdam cupiditate qui officia veritatis fuga omnis dignissimos impedit dolorum amet, suscipit vel cumque, repellendus minima. Sit dolores repellendus modi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem magni perferendis a praesentium expedita iure itaque nesciunt tempore architecto dolor iste quidem, soluta delectus et facilis fugiat deserunt, saepe reiciendis?</p>
+        </div>
+        <div class="buttonArea">
+            <button type="button" id="name1">One Player</a></button>
+            <button type="button" id = "name2">Two Players</button>
         </div>
     </div>
+</div>
+
+<!-- Second board, which enable player to select a name (player O or X)-->
+    <div class="wrapper2">
+        <div class="container">
+                <div class="header" class="remove">
+                    <h3>Would you like to be player X or O?</h3>
+                </div>
+                <div class="playerSelection">
+                    <h1 id="playerX">X</h1>
+                    <h1 id="playerO">O</h1>
+                </div>
+                <div class="buttonArea" class="remove">
+                    <button type="submit"> <a href="index.html">Back</a></button>
+                </div>
+        </div>
+    </div>
+
+   <!--actual game board, the field for players to play-->
+    <div class="wrapper3">
+        <div class="container">
+            <div class="scoreArea">
+                <h2 id="finalResults"></h2>
+                <div class="score">
+                <p id="playerStatus">Player:</p>
+                </div>
+            </div>
+            <div class="playGround">
+                <div class="boxes" id="box0"></div>
+                <div class="boxes" id="box1"></div>
+                <div class="boxes" id="box2"></div>
+                <div class="boxes" id="box3"></div>
+                <div class="boxes" id="box4"></div>
+                <div class="boxes" id="box5"></div>
+                <div class="boxes" id="box6"></div>
+                <div class="boxes" id="box7"></div>
+                <div class="boxes" id="box8"></div>
+            </div>
+        </div>
+        <div class="resetBtnArea">
+            <button id="resetBtn">Reset Game</button>
+       </div>
+    </div>
+    <script src="./JavaScript/script.js"></script>
 </body>
 </html>

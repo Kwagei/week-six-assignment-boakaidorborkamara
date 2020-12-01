@@ -1,11 +1,55 @@
-// code to select a player
+var playerTerm = document.getElementById("playerStatus");
+var finalResult = document.getElementById("finalResults");
+var resetGame = document.getElementById("resetBtn");
+
+// First board, which is the welcome board containing two and one players options
+
+let board1 = document.querySelector(".wrapper1");
+// console.log(board1);
+let first_name_option = document.getElementById("name1");
+// console.log(first_name_option);
+let second_name_option = document.getElementById("name2");
+
+function btnReaction(){
+    if(document.querySelector(".wrapper1").style.display === "block"){
+        board1.style.display="none";
+    }else{
+        board1.style.display="none";
+        document.querySelector(".wrapper2").style.display = "block";
+    }
+}
+
+first_name_option.addEventListener('click' , btnReaction);
+second_name_option.addEventListener('click' , btnReaction);
+
+
+
+// Second board, which enable player to select a name (player O or X)
+let humanPlayer = document.getElementById("playerX");
+let computer = document.getElementById("playerO");
+humanPlayer.addEventListener("click" , selectPlayer);
+computer.addEventListener("click" , selectPlayer);
+
+function selectPlayer(e){
+    let selected_player = e.target.id;
+    if(selected_player === "playerX"){
+        humanPlayer= "X";
+        computer= "O";
+        
+    }  else{
+        humanPlayer = "O";
+        computer = "X";
+    } 
+} 
+
+//actual game board, the field for players to play
+let playerSelectionArea = document.querySelector(".wrapper2");
+let gameField = document.querySelector(".wrapper3");
 function displayPlayground(){
-    let playerSelectionArea = document.querySelector(".wrapper");
-    let gameField = document.querySelector(".wrapper2");
     if(playerSelectionArea.style.display === "block"){
         playerSelectionArea.style.display = "none";
         gameField.style.display = "block";
-        console.log("hey");
+        console.log("stage changed");
     }
     else{
         gameField.style.display = "block";
@@ -13,63 +57,50 @@ function displayPlayground(){
     }
   }
 
-// select player, either X or O
-var playX = document.getElementById("playerX").addEventListener("click" , playerSelectionX);
-var playerO = document.getElementById("playerO").addEventListener("click" , playerSelectionO);
-var selectedPlayerName;
-function playerSelectionX(){
-    if(playerX === document.getElementById("playerX")){
-        selectedPlayerName = "X";
-        console.log(selectedPlayerName);
-    }  
-};
+  humanPlayer.addEventListener("click" , displayPlayground);
+  computer.addEventListener("click" , displayPlayground);
 
-function playerSelectionO(){
-    if(playerO === document.getElementById("playerO")){
-        selectedPlayerName = "O";
-        console.log(selectedPlayerName);
-    } 
-};
 
-//Boxes functionalities
-var playerTerm = document.getElementById("playerStatus");
-var finalResult = document.getElementById("finalResults")
-var resetGame = document.getElementById("resetBtn");
 
-//selection of boxes
-var allBoxes = document.querySelectorAll(".boxes");
-allBoxes.forEach(box => {
-    box.addEventListener('click' , clickResult)
+//Game functionalities
+let activePlayer = true;
+
+let allBoxes = document.querySelectorAll(".boxes");
+
+allBoxes.forEach(function(box){
+    box.addEventListener("click" , boxRespond)
+
+    function boxRespond(){
+        if(activePlayer === true){
+            box.innerHTML = humanPlayer;
+            activePlayer = false;
+            console.log(humanPlayer);
+        }else{
+            box.innerHTML = computer;
+            activePlayer = true;
+            console.log(computer);
+        }
+    }
+    
 })
 
-console.log(allBoxes);
+// function computerPlay(){
+//     for(i = 0; i < allBoxes.length; i++)
+//     console.log(allBoxes[i]);
+//     if()
+// }
+
+// play();
+
+// let win_positions = [
+//     [0,1,2],
+//     [3,4,5],
+//     [6,7,8],
+//     [0,3,6],
+//     [1,4,7],
+//     [2,5,8],
+//     [0,4,8],
+//     [2,4,6],
+// ]
 
 
-
-
-function clickResult(){
-
-        if(document.getElementById("box0")){
-            document.getElementById("box0").innerHTML="X";
-        }
-
-        if(document.getElementById("box1")){
-            document.getElementById("box1").innerHTML="X";
-        }
-
-        if(document.getElementById("box2")){
-            document.getElementById("box2").innerHTML="X";
-        }
-
-        if(document.getElementById("box3")){
-            document.getElementById("box3").innerHTML="X";
-        }
-    
-    
-        let boxArray = Array.from(allBoxes);
-        let boxIndex = boxArray.indexOf(event.target);
-        console.log(boxIndex);
-
-    
-        
-    }
