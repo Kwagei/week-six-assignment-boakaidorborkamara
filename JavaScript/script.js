@@ -66,31 +66,39 @@ function displayPlayground(){
 let activePlayer = true;
 
 let allBoxes = document.querySelectorAll(".boxes");
+console.log(allBoxes);
 
-allBoxes.forEach(function(box){
+allBoxes.forEach( function(box){
     box.addEventListener("click" , boxRespond)
-
-    function boxRespond(){
-        if(activePlayer === true){
+    function boxRespond(e){
+        if(box.innerHTML === ""){
             box.innerHTML = humanPlayer;
-            activePlayer = false;
-            console.log(humanPlayer);
         }else{
-            box.innerHTML = computer;
-            activePlayer = true;
-            console.log(computer);
+            alert("Box Filled");
         }
+        let radomNum = Math.floor(Math.random()*8);
+        console.log(radomNum);
+        if(allBoxes[radomNum].innerHTML === ""){
+            allBoxes[radomNum].innerHTML = computer;
+        }
+       
+        // console.log(radomNum);
     }
-    
-})
+});
 
-// function computerPlay(){
-//     for(i = 0; i < allBoxes.length; i++)
-//     console.log(allBoxes[i]);
-//     if()
+let filled_boxes = [];
+
+ 
+
+
+// function boxRespond(e){
+//     allBoxes.e.target.innerHTML = "s";
+//     let radomNum = Math.floor(Math.random()*8);
+//     console.log(radomNum);
+//     allBoxes[radomNum].innerHTML = computer;
+//     // console.log(radomNum);
 // }
 
-// play();
 
 // let win_positions = [
 //     [0,1,2],
