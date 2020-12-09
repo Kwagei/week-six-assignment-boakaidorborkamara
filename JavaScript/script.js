@@ -1,6 +1,6 @@
-var playerTerm = document.getElementById("playerStatus");
-var finalResult = document.getElementById("finalResults");
-var resetGame = document.getElementById("resetBtn");
+let playerTerm = document.getElementById("playerStatus");
+let finalResult = document.getElementById("finalResults");
+let resetGame = document.getElementById("resetBtn");
 
 // First board, which is the welcome board containing two and one players options
 
@@ -21,6 +21,8 @@ function btnReaction(){
 
 first_name_option.addEventListener('click' , btnReaction);
 second_name_option.addEventListener('click' , btnReaction);
+
+//code to display and hide instructions
 
 
 
@@ -69,46 +71,54 @@ let allBoxes = document.querySelectorAll(".boxes");
 console.log(allBoxes);
 
 allBoxes.forEach( function(box){
-    box.addEventListener("click" , boxRespond)
-    function boxRespond(e){
-        if(box.innerHTML === ""){
-            box.innerHTML = humanPlayer;
-        }else{
-            alert("Box Filled");
-        }
-        let radomNum = Math.floor(Math.random()*8);
-        console.log(radomNum);
-        if(allBoxes[radomNum].innerHTML === ""){
-            allBoxes[radomNum].innerHTML = computer;
-        }
-       
-        // console.log(radomNum);
-    }
+    box.setAttribute("onclick" , "boxRespond(event)");
+   
 });
 
-let filled_boxes = [];
+function boxRespond(e){
+    let box = document.getElementById(e.target.id);
 
- 
+    if(box.innerHTML === ""){
+        box.innerHTML = humanPlayer;
+        computerPlay();
+    }else{
+        alert("Box Filled");
+        
+    }  
+}
+
+function computerPlay(){
+    let radomNum = Math.floor(Math.random()*8);
+    let box = document.getElementById("box" + radomNum);
+
+    console.log(radomNum, box);
+
+    if(box.innerHTML === ""){
+        box.innerHTML = computer;
+    }else{
+        // box.innerHTML = computer;
+        computerPlay();
+    }
+   
+}
 
 
-// function boxRespond(e){
-//     allBoxes.e.target.innerHTML = "s";
-//     let radomNum = Math.floor(Math.random()*8);
-//     console.log(radomNum);
-//     allBoxes[radomNum].innerHTML = computer;
-//     // console.log(radomNum);
-// }
+//Enabling game to win
 
+let win_positions = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6],
+]
 
-// let win_positions = [
-//     [0,1,2],
-//     [3,4,5],
-//     [6,7,8],
-//     [0,3,6],
-//     [1,4,7],
-//     [2,5,8],
-//     [0,4,8],
-//     [2,4,6],
-// ]
+for(i = 0; i < win_positions.length; i++){
+    console.log(win_positions[i])
+}
+
 
 

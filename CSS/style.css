@@ -9,17 +9,20 @@ body{
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color:#ADEFD1FF;
+    background-color:rgb(221, 247, 235);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    
 }
 
 .container{
     background-color:#00203FFF;
     border: 5px solid rgb(79, 167, 127);
-    width: 60vh;
-    height: 60vh;
+    width: 80vh;
+    height: 80vh;
     display: grid;
     padding: 15px;
+    
 }
 
 /* First board, which is the welcome board containing two and one players options  */
@@ -30,26 +33,13 @@ body{
 .header h1{
     color: #ADEFD1FF;
     margin-bottom: 5px;
+    font-size: 3em;
 }
 
-#instruction_btn{
-    color: yellow;
-    cursor: pointer;
-}
-
-#instuction_text{
-    display: none;
-}
-
-.instructionArea{
-    color: white;
-    display: none;
-    justify-items: center;
-    justify-content: center;
-}
 
 .container .buttonArea{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items:center ;
 }
@@ -69,12 +59,52 @@ button:hover{
     font-size: 1em;
     background-color:#ADEFD1FF;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button:active{
     padding: 7px;
     font-size: 1em;
+    font-weight: bold;
     background-color:rgb(79, 167, 127);
+}
+
+#instructions_btn{
+    background-color:#00203FFF;
+    border: 1px solid rgb(79, 167, 127);
+    color: rgb(79, 167, 127);
+}
+
+#instructions_btn:hover{
+    background-color:#00203FFF;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+}
+
+#instructions_btn:active{
+    background-color:rgb(79, 167, 127);
+    color:#00203FFF;
+    border: 1px solid rgb(79, 167, 127);
+    font-weight: bold;
+}
+
+/* styling of the instructions or game guide */
+#instructions_area{
+    color: white;
+}
+
+#instructions_area h2{
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul{
+    margin: 15px;
+}
+
+ul li{
+    margin-bottom: 20px;
 }
 
 
@@ -87,6 +117,12 @@ button:active{
     text-align: center;
     color: white;
     margin-top: 40px;
+    
+}
+
+.header p{
+    margin-top: 10px;
+    color:#ADEFD1FF ;
 }
 
 .container .playerSelection{
@@ -154,20 +190,12 @@ button:active{
     display: none;
 }
 
-.container{
-    background-color:#00203FFF;
-    border: 5px solid rgb(79, 167, 127);
-    width: 60vh;
-    height: 60vh;
-    display: grid;
-    padding: 15px;
-}
 
 .playGround{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-auto-rows: 80px;
-    gap: 5px;
+    gap: 10px;
 }
 
 .scoreArea{
@@ -178,6 +206,7 @@ button:active{
     background-color:#ADEFD1FF;
     margin-bottom: 15px;
     padding: 10px;
+    height: 17vh;
 }
 
 .scoreArea .score{
@@ -202,13 +231,37 @@ button:active{
     align-items: center;
     font-size: 4em;
     font-weight: bolder;
-    border-radius: 10px;
+    
     color:#00203FFF;
 }
 
 .resetBtnArea{
-    display: flex;
-    background-color: #00203FFF;
-    justify-content: center;
-    justify-items: center;
+    text-align: center;
+    display: inline-block;
+}
+
+#resetBtn{
+    color:#00203FFF;
+    background-color:white;
+    margin-right: 118px;
+}
+
+
+#play_again_Btn{
+    color:#00203FFF;
+    background-color: white;
+}
+
+
+#resetBtn:hover{
+    color:#00203FFF;
+    background-color:#ADEFD1FF;
+    font-weight: bold;
+}
+
+
+#play_again_Btn:hover{
+    color:#00203FFF;
+    background-color: #ADEFD1FF;
+    font-weight: bold;
 }
