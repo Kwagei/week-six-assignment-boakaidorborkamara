@@ -65,10 +65,9 @@ function displayPlayground(){
 
 
 //Game functionalities
-let activePlayer = true;
+let count = 0;
 
 let allBoxes = document.querySelectorAll(".boxes");
-console.log(allBoxes);
 
 allBoxes.forEach( function(box){
     box.setAttribute("onclick" , "boxRespond(event)");
@@ -80,6 +79,7 @@ function boxRespond(e){
 
     if(box.innerHTML === ""){
         box.innerHTML = humanPlayer;
+        count+=1;
         computerPlay();
     }else{
         alert("Box Filled");
@@ -95,10 +95,17 @@ function computerPlay(){
 
     if(box.innerHTML === ""){
         box.innerHTML = computer;
+        count+=1;
+        console.log("count:",count);
     }else{
+        if(count <= 8){
+            computerPlay();
+        }
+            
         // box.innerHTML = computer;
-        computerPlay();
-    }
+    };
+
+    
    
 }
 
@@ -120,5 +127,17 @@ for(i = 0; i < win_positions.length; i++){
     console.log(win_positions[i])
 }
 
+function gameWins(){
+    for(i = 0; i < allBoxes.length; i++){
+        if(allBoxes[0].innerHTML === humanPlayer && allBoxes[1].innerHTML === humanPlayer && allBoxes[2].innerHTML === humanPlayer){
+            console.log("Human Player wins")
+        }
+        
+    }
+
+
+}
+
+gameWins();
 
 
