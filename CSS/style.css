@@ -198,6 +198,10 @@ button:active{
     gap: 10px;
 }
 
+.score{
+    margin-bottom: 6px;
+}
+
 .scoreArea{
     display: flex;
     flex-direction: column;

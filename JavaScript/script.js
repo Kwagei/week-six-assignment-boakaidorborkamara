@@ -67,12 +67,14 @@ function displayPlayground(){
 //Game functionalities
 let count = 0;
 
+
 let allBoxes = document.querySelectorAll(".boxes");
 
 allBoxes.forEach( function(box){
     box.setAttribute("onclick" , "boxRespond(event)");
    
 });
+
 
 function boxRespond(e){
     let box = document.getElementById(e.target.id);
@@ -85,13 +87,17 @@ function boxRespond(e){
         alert("Box Filled");
         
     }  
+
+    humanWins();
+    computerWins();
 }
+
+
+
 
 function computerPlay(){
     let radomNum = Math.floor(Math.random()*8);
     let box = document.getElementById("box" + radomNum);
-
-    console.log(radomNum, box);
 
     if(box.innerHTML === ""){
         box.innerHTML = computer;
@@ -101,16 +107,11 @@ function computerPlay(){
         if(count <= 8){
             computerPlay();
         }
-            
-        // box.innerHTML = computer;
     };
-
-    
-   
 }
 
 
-//Enabling game to win
+//Enabling game to win and draw
 
 let win_positions = [
     [0,1,2],
@@ -123,21 +124,66 @@ let win_positions = [
     [2,4,6],
 ]
 
-for(i = 0; i < win_positions.length; i++){
-    console.log(win_positions[i])
-}
-
-function gameWins(){
-    for(i = 0; i < allBoxes.length; i++){
+let winner = document.getElementById("finalResults");
+function humanWins(){
+    let winner = document.getElementById("finalResults");
         if(allBoxes[0].innerHTML === humanPlayer && allBoxes[1].innerHTML === humanPlayer && allBoxes[2].innerHTML === humanPlayer){
-            console.log("Human Player wins")
-        }
-        
-    }
+           winner.innerHTML = "Human Wins";
+        }else if(allBoxes[3].innerHTML === humanPlayer && allBoxes[4].innerHTML === humanPlayer && allBoxes[5].innerHTML === humanPlayer){
+            winner.innerHTML = "Human Wins";}else if(allBoxes[6].innerHTML === humanPlayer && allBoxes[7].innerHTML === humanPlayer && allBoxes[8].innerHTML === humanPlayer){
+                winner.innerHTML = "Human Wins";}else if(allBoxes[0].innerHTML === humanPlayer && allBoxes[3].innerHTML === humanPlayer && allBoxes[6].innerHTML === humanPlayer){
+                    winner.innerHTML = "Human Wins";}else if(allBoxes[1].innerHTML === humanPlayer && allBoxes[4].innerHTML === humanPlayer && allBoxes[7].innerHTML === humanPlayer){
+                        winner.innerHTML = "Human Wins";}else if(allBoxes[2].innerHTML === humanPlayer && allBoxes[5].innerHTML === humanPlayer && allBoxes[6].innerHTML === humanPlayer){
+                            winner.innerHTML = "Human Wins";}else if(allBoxes[0].innerHTML === humanPlayer && allBoxes[4].innerHTML === humanPlayer && allBoxes[8].innerHTML === humanPlayer){
+                                winner.innerHTML = "Human Wins";}else if(allBoxes[2].innerHTML === humanPlayer && allBoxes[4].innerHTML === humanPlayer && allBoxes[6].innerHTML === humanPlayer){
+                                    winner.innerHTML = "Human Wins";}
+}
+let computer_score = document.getElementById("computerScore");
+    let increaseScore = 0;
+    console.log("The typeof is:",typeof( computer_score.innerText));
+    console.log("The type of is:" , typeof(increaseScore))
 
+    let changetonum = Number(computer_score);
+    console.log(typeof(changetonum));
 
+    
+
+function computerWins(){
+    
+   
+    
+        if(allBoxes[0].innerHTML === computer && allBoxes[1].innerHTML === computer && allBoxes[2].innerHTML === computer){
+           winner.innerHTML = "Computer Wins";
+        }else if(allBoxes[3].innerHTML === computer && allBoxes[4].innerHTML === computer && allBoxes[5].innerHTML === computer){
+            winner.innerHTML = "Computer Wins";}else if(allBoxes[6].innerHTML === computer && allBoxes[7].innerHTML === computer && allBoxes[8].innerHTML === computer){
+                winner.innerHTML = "Computer Wins";}else if(allBoxes[0].innerHTML === computer && allBoxes[3].innerHTML === computer && allBoxes[6].innerHTML === computer){
+                    winner.innerHTML = "Computer Wins";}else if(allBoxes[1].innerHTML === computer && allBoxes[4].innerHTML === computer && allBoxes[7].innerHTML === computer){
+                        winner.innerHTML = "Computer Wins";}else if(allBoxes[2].innerHTML === computer && allBoxes[5].innerHTML === computer && allBoxes[6].innerHTML === computer){
+                            winner.innerHTML = "Computer Wins";}else if(allBoxes[0].innerHTML === computer && allBoxes[4].innerHTML === computer && allBoxes[8].innerHTML === computer){
+                                winner.innerHTML = "Computer Wins";}else if(allBoxes[2].innerHTML === computer && allBoxes[4].innerHTML === computer && allBoxes[6].innerHTML === computer){
+                                    winner.innerHTML = "Computer Wins";}
+
+                //Code to enable computer win
+                if(winner.innerHTML === "Computer Wins"){
+                increaseScore++;
+                computer_score.innerHTML = increaseScore;
+                console.log(computer_score.innerHTML);
+                                                    }
 }
 
-gameWins();
+
+//Reset the game
+let resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click" , resetMyGame);
+
+function resetMyGame(){
+    for(let i = 0; i < allBoxes.length; i++){
+        allBoxes[i].innerHTML = "";
+    }
+    winner.innerHTML = "";
+    count = 0;
+}
+
+
 
 
