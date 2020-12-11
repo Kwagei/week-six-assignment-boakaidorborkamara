@@ -171,10 +171,12 @@ function computerWins(){
                                                     }
 }
 
+               
 
-//Reset the game
-let resetBtn = document.getElementById("resetBtn");
-resetBtn.addEventListener("click" , resetMyGame);
+
+//Enable player to play again
+let playAgainBtn = document.getElementById("play_again_Btn");
+playAgainBtn.addEventListener("click" , resetMyGame);
 
 function resetMyGame(){
     for(let i = 0; i < allBoxes.length; i++){
@@ -182,6 +184,14 @@ function resetMyGame(){
     }
     winner.innerHTML = "";
     count = 0;
+}
+
+//Enable the game to reset
+let resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click" , resetTheGame() );
+
+function resetTheGame(){
+   
 }
 
 

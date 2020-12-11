@@ -195,7 +195,7 @@ button:active{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-auto-rows: 80px;
-    gap: 10px;
+    gap: 3px;
 }
 
 .score{
