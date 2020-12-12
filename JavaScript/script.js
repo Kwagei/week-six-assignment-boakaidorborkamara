@@ -37,10 +37,12 @@ function selectPlayer(e){
     if(selected_player === "playerX"){
         humanPlayer= "X";
         computer= "O";
+        alert("You are PLAYER X");
         
     }  else{
         humanPlayer = "O";
         computer = "X";
+        alert("You are PLAYER O");
     } 
 } 
 
@@ -80,9 +82,15 @@ function boxRespond(e){
     let box = document.getElementById(e.target.id);
 
     if(box.innerHTML === ""){
+       
         box.innerHTML = humanPlayer;
+        console.log(box.innerText);
+        console.log(humanPlayer);
+       
+
         count+=1;
         computerPlay();
+        
     }else{
         alert("Box Filled");
         
@@ -125,6 +133,12 @@ let win_positions = [
 ]
 
 let winner = document.getElementById("finalResults");
+
+//increment score after human wins
+let human_score = document.getElementById("humanScore");
+    let increaseHumanScore = 0;
+
+//human win positions
 function humanWins(){
     let winner = document.getElementById("finalResults");
         if(allBoxes[0].innerHTML === humanPlayer && allBoxes[1].innerHTML === humanPlayer && allBoxes[2].innerHTML === humanPlayer){
@@ -137,7 +151,18 @@ function humanWins(){
                             winner.innerHTML = "Human Wins";}else if(allBoxes[0].innerHTML === humanPlayer && allBoxes[4].innerHTML === humanPlayer && allBoxes[8].innerHTML === humanPlayer){
                                 winner.innerHTML = "Human Wins";}else if(allBoxes[2].innerHTML === humanPlayer && allBoxes[4].innerHTML === humanPlayer && allBoxes[6].innerHTML === humanPlayer){
                                     winner.innerHTML = "Human Wins";}
+                                   
+
+                                     //Code to enable computer win and increase score
+                if(winner.innerHTML === "Human Wins"){
+                    increaseHumanScore++;
+                    human_score.innerHTML = increaseHumanScore;
+                    console.log(human_score.innerHTML);
+                                                        }
 }
+
+
+//incrementing computer score after it wins
 let computer_score = document.getElementById("computerScore");
     let increaseScore = 0;
     console.log("The typeof is:",typeof( computer_score.innerText));
@@ -145,9 +170,7 @@ let computer_score = document.getElementById("computerScore");
 
     let changetonum = Number(computer_score);
     console.log(typeof(changetonum));
-
-    
-
+//computer win positions
 function computerWins(){
     
    
@@ -163,7 +186,7 @@ function computerWins(){
                                 winner.innerHTML = "Computer Wins";}else if(allBoxes[2].innerHTML === computer && allBoxes[4].innerHTML === computer && allBoxes[6].innerHTML === computer){
                                     winner.innerHTML = "Computer Wins";}
 
-                //Code to enable computer win
+                //Code to enable computer win and increase score
                 if(winner.innerHTML === "Computer Wins"){
                 increaseScore++;
                 computer_score.innerHTML = increaseScore;
@@ -188,10 +211,10 @@ function resetMyGame(){
 
 //Enable the game to reset
 let resetBtn = document.getElementById("resetBtn");
-resetBtn.addEventListener("click" , resetTheGame() );
+resetBtn.addEventListener("click" , resetTheGame);
 
 function resetTheGame(){
-   
+   location.reload()
 }
 
 
