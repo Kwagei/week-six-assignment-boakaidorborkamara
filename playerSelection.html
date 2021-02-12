@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titactoe Game</title>
+    <link rel="stylesheet" href="./CSS/playerSelection.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+                <div class="header" class="remove">
+                    <h3>Would you like to be player X or O?</h3>
+                </div>
+                <div class="playerSelection" class="remove">
+                    <h1 id="playerX" onclick="displayPlayground()">X</h1>
+                    <h1 id="playerO"  onclick="displayPlayground()">O</h1>
+                </div>
+                <div class="buttonArea" class="remove">
+                    <button type="submit"> <a href="index.html">Back</a></button>
+                </div>
+        </div>
+    </div>
+
+   <!--game are code starts-->
+    <div class="wrapper2">
+        <div class="container2">
+            <div class="scoreArea">
+                <h2 id="finalResults"></h2>
+                <div class="score">
+                <p id="playerStatus">Player:</p>
+                <button id="resetBtn">Reset</button>
+                </div>
+            </div>
+            <div class="playGround">
+                <div class="boxes" id="box0"></div>
+                <div class="boxes" id="box1"></div>
+                <div class="boxes" id="box2"></div>
+                <div class="boxes" id="box3"></div>
+                <div class="boxes" id="box4"></div>
+                <div class="boxes" id="box5"></div>
+                <div class="boxes" id="box6"></div>
+                <div class="boxes" id="box7"></div>
+                <div class="boxes" id="box8"></div>
+                
+            </div>
+
+        </div>
+    </div>
+    <script src="./JavaScript/script.js"></script>
+</body>
+</html>

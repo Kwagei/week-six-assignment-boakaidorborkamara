@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titactoe Game</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+<!-- First board, which is the welcome board containing two and one players options -->
+<div class="wrapper1">
+    <div class="container" id="player_area">
+        <div class="header">
+            <h1>TICTACTOE GAME</h1>
+            <h3>How do your want to play?</h3>
+        </div>
+        <div class="buttonArea">
+            
+            <button type="button" id="name1">One Player</a></button>
+            <button type="button" id = "name2">Two Players</button>
+            <button type="button" id="instructions_btn">READ INSTRUCTIONS</a></button>
+        </div>
+    </div>
+    <!-- <div class="container" id="instructions_area">
+            <h2>GAME GUIDE</h2>
+            <ul>
+                <li>The game is played on a grid that's 3 squares by 3 squares.</li>
+
+                <li>You are X, your friend (or the computer in this case) is O. Players take turns putting their marks in empty squares.</li> 
+                    
+                <li>The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</li> 
+                    
+                   <li>When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</li>
+            </ul>
+
+        <div class="buttonArea">
+            <button type="button" id="back_btn">Go Back</a></button>
+        </div>
+    </div> -->
+</div>
+
+<!-- Second board, which enable player to select a name (player O or X)-->
+    <div class="wrapper2">
+        <div class="container">
+                <div class="header" class="remove">
+                    <h3>Would you like to be player X or O?</h3>
+                    <p>Click a box below to choose name.</p>
+                </div>
+                <div class="playerSelection">
+                    <h1 id="playerX">X</h1>
+                    <h1 id="playerO">O</h1>
+                </div>
+                <div class="buttonArea" class="remove">
+                    <button type="submit"> <a href="index.html">Back</a></button>
+                </div>
+        </div>
+    </div>
+
+   <!--actual game board, the field for players to play-->
+    <div class="wrapper3">
+        <div class="container">
+            <div class="scoreArea">
+                <div class="score">
+                <p >HUMAN: <span id="humanScore">0</span></p>
+                <p >COMPUTER: <span id="computerScore">0</span></p>
+                </div>
+                <h1 id="finalResults"></h1>
+            </div>
+            <div class="playGround">
+                <div class="boxes" id="box0"></div>
+                <div class="boxes" id="box1"></div>
+                <div class="boxes" id="box2"></div>
+                <div class="boxes" id="box3"></div>
+                <div class="boxes" id="box4"></div>
+                <div class="boxes" id="box5"></div>
+                <div class="boxes" id="box6"></div>
+                <div class="boxes" id="box7"></div>
+                <div class="boxes" id="box8"></div>
+            </div>
+            <div class="resetBtnArea">
+                <button id="resetBtn">Reset Game</button>
+                <button id="play_again_Btn">Play Again</button>
+           </div>
+        </div>
+        
+    </div>
+    <script src="./JavaScript/script.js"></script>
+</body>
+</html>
